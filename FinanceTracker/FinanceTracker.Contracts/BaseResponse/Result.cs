@@ -6,7 +6,7 @@ namespace FinanceTracker.Contracts.BaseResponse;
 public class Result : IResult
 {
     public bool Succeeded { get; set; }
-    public List<FailureMessage> Messages { get; set; } = null!;
+    public List<FailureMessage> Messages { get; set; } = new();
 
     public static Result Failed()
     {

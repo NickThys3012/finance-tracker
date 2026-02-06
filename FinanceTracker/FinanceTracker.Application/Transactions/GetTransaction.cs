@@ -12,8 +12,6 @@ public class GetTransactionRequest : IRequest<Result<GetTransactionDto>>
 
 public class GetTransactionRequestHandler : IRequestHandler<GetTransactionRequest, Result<GetTransactionDto>>
 {
-    public async Task<Result<GetTransactionDto>> Handle(GetTransactionRequest request,
-        CancellationToken cancellationToken)
     public Task<Result<GetTransactionDto>> Handle(GetTransactionRequest request,
         CancellationToken cancellationToken)
     {
