@@ -1,8 +1,9 @@
+using FinanceTracker.Contracts.Result;
 using FinanceTracker.Enums;
 
 namespace FinanceTracker.Contracts.BaseResponse;
 
-public class Result
+public class Result : IResult
 {
     public bool Succeeded { get; set; }
     public List<FailureMessage> Messages { get; set; } = null!;
@@ -41,7 +42,7 @@ public class Result
     }
 }
 
-public sealed class Result<T> : Result
+public sealed class Result<T> : Result, IResult<T>
 {
     public T? Data { get; set; }
 
