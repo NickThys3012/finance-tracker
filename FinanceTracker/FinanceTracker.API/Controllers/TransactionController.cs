@@ -8,7 +8,7 @@ namespace FinanceTracker.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TransactionController(IMediator mediator) : Controller
+public class TransactionController(IMediator mediator) : ControllerBase
 {
     private readonly IMediator _mediator = mediator;
 
