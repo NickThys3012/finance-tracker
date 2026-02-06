@@ -15,6 +15,8 @@ public class GetTransactionRequestHandler : IRequestHandler<GetTransactionReques
     public async Task<Result<GetTransactionDto>> Handle(GetTransactionRequest request,
         CancellationToken cancellationToken)
     {
+        if (request.Id == 0)
+            return Result<GetTransactionDto>.NotFound(nameof(Transaction), request.Id);
         var transaction = Transaction.Create(23);
         return Result<GetTransactionDto>.Success(new GetTransactionDto(transaction));
     }

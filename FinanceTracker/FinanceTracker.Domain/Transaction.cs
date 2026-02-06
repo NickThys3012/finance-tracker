@@ -5,9 +5,9 @@ namespace FinanceTracker.Domain;
 public class Transaction : BaseClass
 {
     public int Id { get; private set; }
-    public double Amount { get; private set; }
+    public decimal Amount { get; private set; }
 
-    public static Transaction Create(double amount)
+    public static Transaction Create(decimal amount)
     {
         return new Transaction
         {

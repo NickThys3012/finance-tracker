@@ -70,7 +70,7 @@ public sealed class Result<T> : Result, IResult<T>
         };
     }
 
-    public new static Result<T> NotFound(string className, Guid id)
+    public new static Result<T> NotFound(string className, int id)
     {
         return new Result<T>
         {
