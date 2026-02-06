@@ -7,7 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MediatR" Version="14.0.0"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\FinanceTracker.Application\FinanceTracker.Application.csproj"/>
+        <ProjectReference Include="..\FinanceTracker.Contracts\FinanceTracker.Contracts.csproj"/>
     </ItemGroup>
 
 </Project>

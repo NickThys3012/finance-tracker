@@ -1,5 +1,5 @@
 ﻿namespace FinanceTracker.DataAccess;
 
-public class Class1
+internal static class Class1
 {
 }
