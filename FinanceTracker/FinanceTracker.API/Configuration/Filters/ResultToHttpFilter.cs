@@ -19,9 +19,9 @@ public class ResultToHttpFilter : IAsyncResultFilter
             {
                 context.Result = new OkObjectResult(obj.Value);
             }
-            else if (!result.Messages.Any())
-                // No failure messages provided; fall back to a generic 500 error.
+            else if (!result.Messages.Any()) 
             {
+                // No failure messages provided; fall back to a generic 500 error.
                 context.Result = new ObjectResult(obj.Value)
                 {
                     StatusCode = StatusCodes.Status500InternalServerError
