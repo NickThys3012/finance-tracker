@@ -37,7 +37,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "fin-track",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
