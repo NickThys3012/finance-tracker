@@ -70,3 +70,5 @@ nunit-*.xml
 /httpRequests/
 FinanceTracker/.idea/.idea.FinanceTracker/.idea/
 FinanceTracker/FinanceTracker.sln.DotSettings.user
+
+finance-tracker-ui/.vscode/
