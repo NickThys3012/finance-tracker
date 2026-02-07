@@ -11,7 +11,9 @@ public class ResultToHttpFilter : IAsyncResultFilter
     {
         // If the action already produced an IActionResult, don't touch it.
         // (This filter only transforms plain object results.)
-        if (context.Result is ObjectResult obj && obj.Value is IResult result)
+        if (context.Result is ObjectResult obj
+            && context.Result.GetType() == typeof(ObjectResult)
+            && obj.Value is IResult result)
         {
             if (result.Succeeded)
                 context.Result = new OkObjectResult(obj.Value);

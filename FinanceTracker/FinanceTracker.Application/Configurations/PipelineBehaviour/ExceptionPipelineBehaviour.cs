@@ -25,7 +25,7 @@ public sealed class ExceptionPipelineBehaviour<TRequest, TResult> : IPipelineBeh
         catch (Exception e)
         {
             var errorId = Guid.CreateVersion7().ToString();
-            _logger.LogError(e, errorId);
+            _logger.LogError(e, "Unhandled exception with ErrorId {ErrorId}", errorId);
             return new TResult
             {
                 Succeeded = false,
