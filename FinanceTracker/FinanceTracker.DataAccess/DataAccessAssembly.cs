@@ -10,10 +10,10 @@ namespace FinanceTracker.DataAccess;
 ///     - Locating the <see cref="Assembly" /> that contains data access components.
 ///     - Assembly scanning or registration in dependency injection configuration.
 /// </remarks>
-internal static class Class1
+internal static class DataAccessAssembly
 {
     /// <summary>
     ///     Gets the <see cref="Assembly" /> that contains the data access types.
     /// </summary>
-    internal static Assembly Assembly => typeof(Class1).Assembly;
+    internal static Assembly Assembly => typeof(DataAccessAssembly).Assembly;
 }

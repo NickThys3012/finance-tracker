@@ -10,11 +10,9 @@ namespace FinanceTracker.API.Controllers;
 [Route("api/[controller]")]
 public class TransactionController(IMediator mediator) : ControllerBase
 {
-    private readonly IMediator _mediator = mediator;
-
     [HttpGet("{id:int}")]
-    public async Task<Result<GetTransactionDto>> GetById([FromRoute] int id)
+    public async Task<Result<GetTransactionDto>> GetById([FromRoute] int id, CancellationToken cancellationToken)
     {
-        return await _mediator.Send(new GetTransactionRequest { Id = id });
+        return await mediator.Send(new GetTransactionRequest { Id = id }, cancellationToken);
     }
 }

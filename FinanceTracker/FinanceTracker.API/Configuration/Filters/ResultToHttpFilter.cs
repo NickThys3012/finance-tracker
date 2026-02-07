@@ -12,14 +12,23 @@ public class ResultToHttpFilter : IAsyncResultFilter
         // If the action already produced an IActionResult, don't touch it.
         // (This filter only transforms plain object results.)
         if (context.Result is ObjectResult obj && obj.Value is IResult result)
-            context.Result = result.Succeeded
-                ? new OkObjectResult(obj.Value)
-                : result.Messages.First().Reason switch
+        {
+            if (result.Succeeded)
+                context.Result = new OkObjectResult(obj.Value);
+            else if (!result.Messages.Any())
+                // No failure messages provided; fall back to a generic 500 error.
+                context.Result = new ObjectResult(obj.Value)
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            else
+                context.Result = result.Messages.First().Reason switch
                 {
                     FailureReason.NotFound => new NotFoundObjectResult(obj.Value),
                     FailureReason.NotValid => new BadRequestObjectResult(obj.Value),
                     _ => new ObjectResult(obj.Value) { StatusCode = StatusCodes.Status500InternalServerError }
                 };
+        }
 
         await next();
     }

@@ -69,3 +69,4 @@ nunit-*.xml
 # Editor-based HTTP Client requests
 /httpRequests/
 FinanceTracker/.idea/.idea.FinanceTracker/.idea/
+FinanceTracker/FinanceTracker.sln.DotSettings.user

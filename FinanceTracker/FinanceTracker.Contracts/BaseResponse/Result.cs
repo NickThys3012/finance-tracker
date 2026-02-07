@@ -27,7 +27,7 @@ public class Result : IResult
         return new Result { Succeeded = true };
     }
 
-    public static Result NotFound(string className, Guid id)
+    public static Result NotFound(string className, int id)
     {
         return new Result
         {
