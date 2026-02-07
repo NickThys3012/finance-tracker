@@ -24,12 +24,23 @@ public class ResultToHttpFilter : IAsyncResultFilter
                     StatusCode = StatusCodes.Status500InternalServerError
                 };
             else
-                context.Result = result.Messages.First().Reason switch
+            {
+                // Derive status code from all failure reasons with explicit precedence
+                var reasons = result.Messages.Select(m => m.Reason).ToList();
+
+                // Precedence: NotFound > NotValid > default 500
+                var effectiveReason =
+                    reasons.Contains(FailureReason.NotFound) ? FailureReason.NotFound :
+                    reasons.Contains(FailureReason.NotValid) ? FailureReason.NotValid :
+                    (FailureReason?)null;
+
+                context.Result = effectiveReason switch
                 {
                     FailureReason.NotFound => new NotFoundObjectResult(obj.Value),
                     FailureReason.NotValid => new BadRequestObjectResult(obj.Value),
                     _ => new ObjectResult(obj.Value) { StatusCode = StatusCodes.Status500InternalServerError }
                 };
+            }
         }
 
         await next();
