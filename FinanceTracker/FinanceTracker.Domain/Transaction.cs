@@ -38,13 +38,13 @@ public class Transaction : BaseClassWithId
     }
 
     public DateTimeOffset Date { get; private set; }
-    public string Description { get; private set; }
+    public string Description { get; private set; } = null!;
     public decimal Amount { get; private set; }
-    public string Currency { get; private set; }
+    public string Currency { get; private set; } = null!;
     public int AccountId { get; private set; }
-    public Account Account { get; private set; }
+    public Account Account { get; private set; } = null!;
     public int ImportBatchId { get; private set; }
-    public ImportBatch ImportBatch { get; private set; }
+    public ImportBatch ImportBatch { get; private set; } = null!;
     public IReadOnlyCollection<TransactionSplit> Splits => _splits;
 
     private static void ValidateTransactionInputs(string description, decimal amount, string currency)
