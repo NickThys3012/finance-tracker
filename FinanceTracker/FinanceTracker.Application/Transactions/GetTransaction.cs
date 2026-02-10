@@ -15,7 +15,7 @@ public class GetTransactionRequestHandler : IRequestHandler<GetTransactionReques
     public Task<Result<GetTransactionDto>> Handle(GetTransactionRequest request,
         CancellationToken cancellationToken)
     {
-        var transaction = Transaction.Create(23);
+        var transaction = new Transaction(DateTimeOffset.Now, "Test", 0, "USD", 1, 1);
         return Task.FromResult(Result<GetTransactionDto>.Success(new GetTransactionDto(transaction)));
     }
 }
