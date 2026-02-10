@@ -8,5 +8,5 @@ public abstract class BaseClass
 
 public abstract class BaseClassWithId : BaseClass
 {
-    public int Id { get; set; }
+    public int Id { get; protected set; }
 }
