@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((ctx, lc) =>
     {
         lc.ReadFrom.Configuration(ctx.Configuration);
-        lc.WriteTo.Console(theme:AnsiConsoleTheme.Sixteen);
+        lc.WriteTo.Console(theme: AnsiConsoleTheme.Sixteen);
         lc.WriteTo.File("Logs/logs.txt", rollingInterval: RollingInterval.Day);
     }
 );
