@@ -2,7 +2,7 @@
 
 namespace FinanceTracker.Domain;
 
-public class Transaction : BaseClassWithId
+public class Transaction : BaseClass
 {
     private readonly List<TransactionSplit> _splits = new();
 

@@ -2,7 +2,7 @@ using FinanceTracker.Domain.Base;
 
 namespace FinanceTracker.Domain;
 
-public class Category : BaseClassWithId
+public class Category : BaseClass
 {
     public Category(string name)
     {

@@ -3,7 +3,7 @@ using FinanceTracker.Domain.CsvProfileSub;
 
 namespace FinanceTracker.Domain;
 
-public class CsvProfile : BaseClassWithId
+public class CsvProfile : BaseClass
 {
     private CsvProfile()
     {

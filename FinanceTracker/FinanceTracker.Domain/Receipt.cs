@@ -2,7 +2,7 @@ using FinanceTracker.Domain.Base;
 
 namespace FinanceTracker.Domain;
 
-public class Receipt : BaseClassWithId
+public class Receipt : BaseClass
 {
     private Receipt()
     {

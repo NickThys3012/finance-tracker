@@ -2,7 +2,7 @@ using FinanceTracker.Domain.Base;
 
 namespace FinanceTracker.Domain;
 
-public class ImportBatch : BaseClassWithId
+public class ImportBatch : BaseClass
 {
     private ImportBatch()
     {

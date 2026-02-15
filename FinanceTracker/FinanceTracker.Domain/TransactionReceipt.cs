@@ -1,12 +1,14 @@
+using FinanceTracker.Domain.Base;
+
 namespace FinanceTracker.Domain;
 
-public class TransactionReceiptLink
+public class TransactionReceipt : BaseClass
 {
-    private TransactionReceiptLink()
+    private TransactionReceipt()
     {
     }
 
-    public TransactionReceiptLink(int transactionId, Transaction transaction, int receiptId, Receipt receipt,
+    public TransactionReceipt(int transactionId, Transaction transaction, int receiptId, Receipt receipt,
         MatchType type)
     {
         TransactionId = transactionId;

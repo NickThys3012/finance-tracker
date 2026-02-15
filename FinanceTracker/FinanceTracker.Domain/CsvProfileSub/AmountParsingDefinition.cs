@@ -1,8 +1,9 @@
+using FinanceTracker.Domain.Base;
 using FinanceTracker.Enums.CvsProfile;
 
 namespace FinanceTracker.Domain.CsvProfileSub;
 
-public class AmountParsingDefinition
+public class AmountParsingDefinition : BaseClass
 {
     private AmountParsingDefinition()
     {

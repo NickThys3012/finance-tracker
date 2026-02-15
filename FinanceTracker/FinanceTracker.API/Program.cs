@@ -1,5 +1,6 @@
 using FinanceTracker.API.Configuration.Filters;
 using FinanceTracker.Application.Configurations;
+using FinanceTracker.DataAccess.Configuration;
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
 
@@ -12,6 +13,7 @@ builder.Host.UseSerilog((ctx, lc) =>
         lc.WriteTo.File("Logs/logs.txt", rollingInterval: RollingInterval.Day);
     }
 );
+builder.Services.AddDataAccessServices(builder.Configuration);
 
 builder.Services.AddControllers(options => { options.Filters.Add<ResultToHttpFilter>(); });
 builder.Services.AddEndpointsApiExplorer();

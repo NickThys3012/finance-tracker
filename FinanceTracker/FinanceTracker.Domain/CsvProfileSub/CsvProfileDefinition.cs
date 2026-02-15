@@ -1,6 +1,8 @@
+using FinanceTracker.Domain.Base;
+
 namespace FinanceTracker.Domain.CsvProfileSub;
 
-public class CsvProfileDefinition
+public class CsvProfileDefinition : BaseClass
 {
     private CsvProfileDefinition()
     {
@@ -19,7 +21,6 @@ public class CsvProfileDefinition
         Mapping = mapping;
         DescriptionCleanupRules = descriptionCleanupRules;
     }
-
 
     // Parsing
     public char Delimiter { get; set; } = ';';

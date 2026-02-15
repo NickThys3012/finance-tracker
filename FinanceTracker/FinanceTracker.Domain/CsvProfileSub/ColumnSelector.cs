@@ -1,6 +1,8 @@
+using FinanceTracker.Domain.Base;
+
 namespace FinanceTracker.Domain.CsvProfileSub;
 
-public class ColumnSelector
+public class ColumnSelector : BaseClass
 {
     private ColumnSelector()
     {
