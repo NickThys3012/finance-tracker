@@ -240,3 +240,5 @@ Thumbs.db
 .env
 .env.local
 .env.*.local
+
+FinanceTracker/FinanceTracker.API/appsettings.Development.json
