@@ -10,6 +10,6 @@ public class TransactionSplitConfiguration : IEntityTypeConfiguration<Transactio
     {
         builder.HasKey(x => x.Id);
         builder.HasOne(x => x.Transaction).WithMany(x => x.Splits);
-        builder.HasOne(x => x.Category).WithOne();
+        builder.HasOne(x => x.Category).WithMany().HasForeignKey(x=>x.CategoryId);
     }
 }

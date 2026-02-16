@@ -38,8 +38,8 @@ public class FinanceTrackerDbContext : DbContext
 
         foreach (var entry in modifiedOrAdded)
         {
-            if (entry.State == EntityState.Added) entry.Entity.CreatedTime = DateTime.Now;
-            entry.Entity.UpdatedTime = DateTime.Now;
+            if (entry.State == EntityState.Added) entry.Entity.CreatedTime = DateTime.UtcNow;
+            entry.Entity.UpdatedTime = DateTime.UtcNow;
         }
 
         return base.SaveChangesAsync(cancellationToken);
@@ -52,8 +52,8 @@ public class FinanceTrackerDbContext : DbContext
 
         foreach (var entry in modifiedOrAdded)
         {
-            if (entry.State == EntityState.Added) entry.Entity.CreatedTime = DateTime.Now;
-            entry.Entity.UpdatedTime = DateTime.Now;
+            if (entry.State == EntityState.Added) entry.Entity.CreatedTime = DateTime.UtcNow;
+            entry.Entity.UpdatedTime = DateTime.UtcNow;
         }
 
         return base.SaveChanges();

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinanceTracker.DataAccess.EntityFramework.Migrations
 {
     [DbContext(typeof(FinanceTrackerDbContext))]
-    [Migration("20260215183411_Initial")]
+    [Migration("20260216151655_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -339,9 +339,6 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CsvProfileId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CvsProfileId")
                         .HasColumnType("int");
 
@@ -363,7 +360,7 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CsvProfileId");
+                    b.HasIndex("CvsProfileId");
 
                     b.ToTable("ImportBatches");
                 });
@@ -444,8 +441,7 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.HasIndex("ImportBatchId")
-                        .IsUnique();
+                    b.HasIndex("ImportBatchId");
 
                     b.ToTable("Transactions");
                 });
@@ -513,8 +509,7 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId")
-                        .IsUnique();
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("TransactionId");
 
@@ -637,7 +632,7 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
                 {
                     b.HasOne("FinanceTracker.Domain.CsvProfile", "CsvProfile")
                         .WithMany()
-                        .HasForeignKey("CsvProfileId")
+                        .HasForeignKey("CvsProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -653,8 +648,8 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
                         .IsRequired();
 
                     b.HasOne("FinanceTracker.Domain.ImportBatch", "ImportBatch")
-                        .WithOne()
-                        .HasForeignKey("FinanceTracker.Domain.Transaction", "ImportBatchId")
+                        .WithMany()
+                        .HasForeignKey("ImportBatchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -685,8 +680,8 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
             modelBuilder.Entity("FinanceTracker.Domain.TransactionSplit", b =>
                 {
                     b.HasOne("FinanceTracker.Domain.Category", "Category")
-                        .WithOne()
-                        .HasForeignKey("FinanceTracker.Domain.TransactionSplit", "CategoryId")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

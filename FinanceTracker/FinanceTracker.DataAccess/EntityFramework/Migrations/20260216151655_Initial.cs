@@ -261,7 +261,6 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FileName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CvsProfileId = table.Column<int>(type: "int", nullable: false),
-                    CsvProfileId = table.Column<int>(type: "int", nullable: false),
                     RowCount = table.Column<int>(type: "int", nullable: false),
                     ImportCount = table.Column<int>(type: "int", nullable: false),
                     SkippedCount = table.Column<int>(type: "int", nullable: false),
@@ -272,8 +271,8 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
                 {
                     table.PrimaryKey("PK_ImportBatches", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ImportBatches_CsvProfiles_CsvProfileId",
-                        column: x => x.CsvProfileId,
+                        name: "FK_ImportBatches_CsvProfiles_CvsProfileId",
+                        column: x => x.CvsProfileId,
                         principalTable: "CsvProfiles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -436,9 +435,9 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
                 column: "DefinitionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ImportBatches_CsvProfileId",
+                name: "IX_ImportBatches_CvsProfileId",
                 table: "ImportBatches",
-                column: "CsvProfileId");
+                column: "CvsProfileId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TextReplaceRules_CsvProfileDefinitionId",
@@ -465,14 +464,12 @@ namespace FinanceTracker.DataAccess.EntityFramework.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_ImportBatchId",
                 table: "Transactions",
-                column: "ImportBatchId",
-                unique: true);
+                column: "ImportBatchId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TransactionSplits_CategoryId",
                 table: "TransactionSplits",
-                column: "CategoryId",
-                unique: true);
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TransactionSplits_TransactionId",
