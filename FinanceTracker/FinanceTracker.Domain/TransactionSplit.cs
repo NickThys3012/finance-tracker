@@ -2,7 +2,7 @@ using FinanceTracker.Domain.Base;
 
 namespace FinanceTracker.Domain;
 
-public class TransactionSplit : BaseClassWithId
+public class TransactionSplit : BaseClass
 {
     private TransactionSplit()
     {

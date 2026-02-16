@@ -1,6 +1,8 @@
+using FinanceTracker.Domain.Base;
+
 namespace FinanceTracker.Domain.CsvProfileSub;
 
-public class TextReplaceRule
+public class TextReplaceRule : BaseClass
 {
     public TextReplaceRule(string pattern, string replacement, bool useRegex)
     {

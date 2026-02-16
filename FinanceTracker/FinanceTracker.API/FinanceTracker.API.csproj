@@ -9,6 +9,10 @@
     <ItemGroup>
         <PackageReference Include="MediatR" Version="14.0.0"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Serilog" Version="4.3.1-dev-02406"/>
         <PackageReference Include="Serilog.AspNetCore" Version="10.0.0"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.2"/>
@@ -17,6 +21,7 @@
     <ItemGroup>
         <ProjectReference Include="..\FinanceTracker.Application\FinanceTracker.Application.csproj"/>
         <ProjectReference Include="..\FinanceTracker.Contracts\FinanceTracker.Contracts.csproj"/>
+        <ProjectReference Include="..\FinanceTracker.DataAccess\FinanceTracker.DataAccess.csproj"/>
     </ItemGroup>
 
 </Project>

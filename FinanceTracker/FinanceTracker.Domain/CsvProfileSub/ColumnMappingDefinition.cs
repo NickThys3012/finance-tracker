@@ -1,9 +1,14 @@
+using FinanceTracker.Domain.Base;
 using FinanceTracker.Enums.CvsProfile;
 
 namespace FinanceTracker.Domain.CsvProfileSub;
 
-public class ColumnMappingDefinition
+public class ColumnMappingDefinition : BaseClass
 {
+    public ColumnMappingDefinition()
+    {
+    }
+
     public ColumnMappingDefinition(MappingStrategy strategy, ColumnSelector date, ColumnSelector description,
         ColumnSelector? counterparty, ColumnSelector? reference, ColumnSelector? externalId, ColumnSelector? currency,
         ColumnSelector? account, ColumnSelector? amount, ColumnSelector? debit, ColumnSelector? credit)
