@@ -19,5 +19,5 @@ public interface IUnitOfWork
     public ICsvProfileDefinitionRepository CsvProfileDefinitions { get; }
     public ITextReplaceRuleRepository TextReplaceRules { get; }
 
-    public void SaveChanges();
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

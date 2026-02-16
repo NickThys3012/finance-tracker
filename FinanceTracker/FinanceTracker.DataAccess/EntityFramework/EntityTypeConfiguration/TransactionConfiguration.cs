@@ -11,6 +11,6 @@ public class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
         builder.HasKey(x => x.Id);
         builder.HasOne(x => x.Account).WithMany();
         builder.HasMany(x => x.Splits).WithOne();
-        builder.HasOne(x => x.ImportBatch).WithMany().HasForeignKey(x=>x.ImportBatchId);
+        builder.HasOne(x => x.ImportBatch).WithMany().HasForeignKey(x => x.ImportBatchId);
     }
 }

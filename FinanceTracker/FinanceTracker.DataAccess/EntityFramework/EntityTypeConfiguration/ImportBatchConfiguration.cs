@@ -9,6 +9,6 @@ public class ImportBatchConfiguration : IEntityTypeConfiguration<ImportBatch>
     public void Configure(EntityTypeBuilder<ImportBatch> builder)
     {
         builder.HasKey(x => x.Id);
-        builder.HasOne(x => x.CsvProfile).WithMany().HasForeignKey(x=>x.CvsProfileId);
+        builder.HasOne(x => x.CsvProfile).WithMany().HasForeignKey(x => x.CvsProfileId);
     }
 }

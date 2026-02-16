@@ -1,3 +1,4 @@
+using FinanceTracker.Contracts.Interfaces;
 using FinanceTracker.DataAccess.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,11 +12,10 @@ public static class DataAccessRegistration
     {
         var connString = config.GetConnectionString("FinanceTrackerDb");
         if (string.IsNullOrWhiteSpace(connString))
-        {
             throw new InvalidOperationException(
                 "The 'FinanceTrackerDb' connection string is missing or empty. " +
                 "Please configure a valid connection string in the application settings.");
-        }
         services.AddDbContext<FinanceTrackerDbContext>(opt => opt.UseSqlServer(connString));
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
 }
